@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alaina
- * Date: 4/6/17
- * Time: 1:19 PM
- */
 
 namespace Calendar;
 
@@ -24,9 +18,6 @@ class HomeController extends Controller{
         $root=$site->getRoot();
         if(isset($post['login'])){
             $this->redirect="$root/login.php";
-        }
-        else if (isset($post['howto'])){
-            $this->redirect="$root/how-to-play.php";
         }
         else if(isset($post['games'])){
             $games = new Games($site);

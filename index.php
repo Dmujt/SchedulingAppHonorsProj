@@ -1,7 +1,6 @@
 <?php
-$open=true;
 require __DIR__ . '/lib/site.inc.php';
-$view = new Calendar\HomeView($user);
+$view = new Calendar\HomeView($site, $user);
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +13,7 @@ $view = new Calendar\HomeView($user);
 echo $view->header();
 ?>
     <div class="main-content">
+        <h1>Homepage</h1>
         <?php echo $view->present() ?>
     </div>
 

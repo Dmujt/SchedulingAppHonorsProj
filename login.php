@@ -16,7 +16,6 @@ $view = new Calendar\LoginView($_SESSION, $_GET);
 <body>
 <?php echo $view->header(); ?>
 <div class="main-content">
-    <?php echo $view->errorPresent();?>
     <?php echo $view->present();?>
 </div>
 

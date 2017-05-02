@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alaina
- * Date: 4/5/17
- * Time: 12:27 PM
- */
 
 namespace Calendar;
 

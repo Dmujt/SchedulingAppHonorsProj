@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alaina
- * Date: 4/6/17
- * Time: 1:14 PM
- */
 
 namespace Calendar;
 
@@ -16,10 +10,15 @@ class HomeView extends View{
      * set title
      */
 
-    public function __construct($user){
+    public function __construct(Site $site, $user){
+        $this->setSite($site);
         $this->user=$user;
         $this->setTitle("Calendar Home");
-
+        $this->addLink("tasks.php", "Todo List");
+        $this->addLink("events.php", "Events");
+        $this->addLink("calendar.php", "Calendar");
+        $this->addLink("./post/logout.php", "Log Out");
+        $this->setBg("main");
     }
 
     /**
@@ -27,40 +26,11 @@ class HomeView extends View{
      */
 
     public function present(){
-        if ($this->user === null) {
-            $html=<<<HTML
-<p class="hp">
-Welcome to Calendar! </p>
-HTML;
-        } else {
-            $name = $this->user->getName();
-            $html = <<<HTML
-<p  class="hp">Welcome, $name!</p>
-HTML;
-        }
-
-        $html .= <<<HTML
-<form method="post" action="post/index.php" class="initial-gameform">
-<p>
-<input type="submit" value="How To Page" name="howto" id="howto"/>  
-HTML;
-        if($this->user === null) {
-            $html .= <<<HTML
-<input type="submit" value="Login" name="login" id="login"/>
-<input type="submit" value="Create Account" name="create" id="create"/>
-</p>
-</form>
-HTML;
-        }
-        else{
-            $html .= <<<HTML
-<input type="submit" value="View/Create Games" name="games" id="games"/>
-<input type="submit" value="Logout" name="logout" id="logout"/>
-</p>
-</form>
-HTML;
-        }
-
+        $html = "";
+        $tv = new TasksView($this->getSite(), $this->user);
+        $ev = new EventsView($this->getSite(), $this->user);
+        $html.= $tv->uncompleteList();
+        $html.= $ev->futureEvents();
         return $html;
     }
 

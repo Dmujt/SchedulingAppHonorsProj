@@ -17,8 +17,7 @@ class LoginView extends View{
     public function __construct($sess, $get) {
         $this->session = $sess;
         $this->get = $get;
-        $this->setTitle("Login");
-        $this->addLink("./", "Homepage");
+        $this->setTitle("Log In");
     }
 
 
@@ -27,23 +26,31 @@ class LoginView extends View{
      * present the form if needed
      */
     public function present() {
+        $err = $this->errorPresent();
         $html = <<<HTML
+          <div id="introfield">
+    <h1>
+      <i class="fa fa-calendar">
+      </i>
+    </h1>
+  </div>
 <form method="post" action="./post/login.php" class="initial-gameform">
-<fieldset>
-<legend>Login</legend>
+	<fieldset>
+		<legend>Login</legend>
+		<span class="error">
+		$err
+</span>
 		<p>
-			<label for="email">Email</label>
+
 			<input type="email" id="email" name="email" placeholder="Email">
 		</p>
 		<p>
-			<label for="password">Password</label>
 			<input type="password" id="password" name="password" placeholder="Password">
 		</p>
 		<p>
-			<input type="submit" value="Login" name="login" id="login"> 
-<a href="./lostpassword.php">Lost Password</a>
-        </p>
-        </fieldset>
+			<input type="submit" name="login" value="Login"> <a href="./lostpassword.php">Lost Password</a> <a href="./new-user.php">Sign Up</a>
+		</p>
+	</fieldset>
 </form>
 HTML;
     return $html;

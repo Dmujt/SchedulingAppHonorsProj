@@ -9,7 +9,35 @@
 namespace Calendar;
 
 
-class CalendarView
+class CalendarView extends View
 {
+    /**
+     * HomeView constructor.
+     * @param $user
+     * set title
+     */
 
+    public function __construct($user)
+    {
+        $this->user = $user;
+        $this->setTitle("Calendar Home");
+        $this->addLink("tasks.php", "Todo List");
+        $this->addLink("events.php", "Events");
+        $this->addLink("calendar.php", "Calendar");
+        $this->addLink("./post/logout.php", "Log Out");
+        $this->setBg("cal");
+    }
+
+    /**
+     * @return HTML for home page
+     */
+
+    public function present()
+    {
+        $html = "<h1>Weekly Calendar</h1>";
+
+        return $html;
+    }
+
+    private $user;
 }

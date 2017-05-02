@@ -21,6 +21,6 @@ if(isset($_SESSION[Calendar\User::SESSION_NAME])) {
 // redirect if user is not logged in
 if(!isset($open) && $user === null) {
     $root = $site->getRoot();
-    header("location: $root/");
+    header("location: $root/login.php");
     exit;
 }

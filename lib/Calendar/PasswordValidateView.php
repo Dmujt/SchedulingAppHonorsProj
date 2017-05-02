@@ -30,21 +30,22 @@ class PasswordValidateView extends View{
      */
 
     public function present() {
+        $err = $this->error_msg();
         $html = <<<HTML
 <form class="login" method="post" action="./post/password-validate.php">
 <input type="hidden" name="validator" value="$this->validator">
 	<fieldset>
 		<legend>Change Password</legend>
+		<span class="error">
+		$err
+</span>
 		<p>
-			<label for="email">Email</label><br>
 			<input type="email" id="email" name="email" placeholder="Email">
 		</p>
 		<p>
-			<label for="password">Password:</label><br>
 			<input type="password" id="name" name="password" placeholder="Password">
 		</p>
 		<p>
-			<label for="phone">Password (again):</label><br>
 			<input type="password" id="phone" name="password2" placeholder="Confirm Password">
 		</p>
 		<p>

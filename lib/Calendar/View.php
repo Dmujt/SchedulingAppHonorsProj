@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: riesbyfe
- * Date: 4/7/17
- * Time: 6:57 AM
- */
 
 namespace Calendar;
 
@@ -44,11 +38,21 @@ HTML;
 
     public function header()
     {
+        $bgv = $this->bg;
         $html = <<<HTML
+          <div id="bg" class="$bgv">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 <nav>
 <ul>
 <li class="left">
-            <img src="images/title.png" width="600" height="104" alt="Title" />
+    <a class="title" href="index.php">
+    <i class="fa fa-calendar"></i>
+    CalendarApp</a>
 </li>
 HTML;
 
@@ -92,9 +96,30 @@ HTML;
         return $this->protectRedirect;
     }
 
+
+    public function setSite($site)
+    {
+        $this->site = $site;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSite()
+    {
+        return $this->site;
+    }
     /// Page protection redirect
     private $protectRedirect = null;
     private $title = "";	///< The page title
     private $links = array();	///< Links to add to the nav bar
-
+    private $bg = "";
+    private $site;
+    /**
+     * @param string $bg
+     */
+    public function setBg($bg)
+    {
+        $this->bg = $bg;
+    }
 }
