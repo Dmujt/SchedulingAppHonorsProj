@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/lib/site.inc.php';
-$view = new Calendar\CalendarView($user);
+$view = new Calendar\CalendarView($site, $user);
 ?>
 
 <!DOCTYPE html>

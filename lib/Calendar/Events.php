@@ -73,8 +73,9 @@ SQL;
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public function getToday($d, $userid){
-        $date = date('Y-m-d H:i:s', $d);
+    public function getToday($date, $userid){
+       // $date = date('Y-m-d H:i:s', $d);
+
         $sql = <<<SQL
 SELECT *
 FROM $this->tableName

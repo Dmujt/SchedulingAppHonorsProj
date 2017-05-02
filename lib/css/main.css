@@ -379,3 +379,74 @@ div.card ul li.done {
 div.card ul li.done p.description {
   border-bottom: 1px dashed gray;
 }
+
+#calendararea {
+  display: block;
+}
+#calendararea .month p {
+  width: 100%;
+  display: block;
+  color: white;
+  background-color: #53f;
+  padding: 1.5rem 0;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+#calendararea ul {
+  display: block;
+  padding: 0;
+  list-style-type: none;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+#calendararea ul li {
+  display: inline-block;
+  width: 13.8%;
+  text-align: center;
+  font-size: 1.25rem;
+  padding: 1.15rem 0;
+  margin: 0;
+}
+#calendararea ul.days {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+#calendararea ul.days li {
+  width:14.28%;
+  text-align: left;
+  padding: .25rem 0rem;
+  font-size: 1rem;
+  color: #38618C;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  height: 10vh;
+  overflow-y: auto;
+}
+#calendararea ul.days li ul {
+  display: block;
+}
+#calendararea ul.days li ul li {
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: .85rem;
+  padding: 0;
+  height: auto;
+  color: white;
+}
+#calendararea ul.days li ul li:nth-child(4n+1) {
+  background: #FF5964;
+}
+#calendararea ul.days li ul li:nth-child(4n+2) {
+  background: #35A7FF;
+}
+#calendararea ul.days li ul li:nth-child(4n+3) {
+  background: #1B998B;
+}
+#calendararea ul.days li ul li:nth-child(4n+4) {
+  background: #53f;
+}
+#calendararea ul.days li.notday {
+  opacity: 0;
+}
+#calendararea ul.days li.today {
+  background-color: #35A7FF;
+}
